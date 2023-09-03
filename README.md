@@ -14,7 +14,7 @@ Açai Wave é uma aplicação web de uma loja virtual de açaí construída com 
 
 - **Rastreamento de Pedidos:** Acompanhe o status de entrega dos pedidos em tempo real.
 
-- **Integração de Pagamento:** Realize pagamentos seguros online.
+
 
 ## Instalação
 
