@@ -47,8 +47,16 @@ Isso iniciará o servidor de desenvolvimento Vite e você poderá acessar o apli
 Contribuições são bem-vindas! Se você deseja contribuir para o projeto, siga estas etapas:
 
 1- Faça um fork do repositório.
+
 2 - Crie uma branch com a sua feature ou correção de bug: git checkout -b minha-feature.
+
 3 - Faça commit das suas alterações: git commit -m 'Adiciona uma nova feature'.
+
 4 - Envie as alterações para a sua branch: git push origin minha-feature.
+
 5 - Abra um Pull Request para revisão.
 
+## Licença
+
+
+Este projeto está sob a licença MIT.
