@@ -1,8 +1,26 @@
-# React + Vite
+# Açai Wave - Loja de Açaí
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Açai Wave Logo](src/assets/açai1.png)
 
-Currently, two official plugins are available:
+Açai Wave é uma aplicação web de uma loja virtual de açaí construída com React, Vite e Material-UI. Esta plataforma permite que os usuários visualizem o menu, façam pedidos e acompanhem o status de entrega dos seus produtos de açaí favoritos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades Principais
+
+- **Menu de Açaí:** Visualize uma lista completa de produtos de açaí disponíveis com detalhes, preços e opções personalizáveis.
+
+- **Pedidos:** Adicione produtos ao carrinho, ajuste a quantidade e personalize os pedidos antes de finalizá-los.
+
+- **Autenticação:** Os usuários podem criar contas, fazer login e manter um histórico de pedidos.
+
+- **Rastreamento de Pedidos:** Acompanhe o status de entrega dos pedidos em tempo real.
+
+- **Integração de Pagamento:** Realize pagamentos seguros online.
+
+## Instalação
+
+Siga estas instruções para configurar o projeto em sua máquina local.
+
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/seu-usuario/acai-wave.git
