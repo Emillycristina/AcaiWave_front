@@ -123,7 +123,7 @@ const Login = () => {
                   />
                 )}
               />
-              <Controller
+             <Controller
                 name="password"
                 control={control}
                 defaultValue=""
@@ -131,6 +131,7 @@ const Login = () => {
                   <TextField
                     {...field}
                     margin="normal"
+                    required
                     fullWidth
                     name="password"
                     label="Password"
@@ -138,11 +139,10 @@ const Login = () => {
                     color="secondary"
                     type={passwordVisible ? "text" : "password"}
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
                     autoComplete="current-password"
                     error={!!errors.password}
                     helperText={errors.password ? errors.password.message : ""}
-                    InputProps={{
+                     InputProps={{
                       endAdornment: (
                         <InputAdornment position="end">
                           <Box
@@ -156,9 +156,15 @@ const Login = () => {
                         </InputAdornment>
                       ),
                     }}
+                    onChange={(e) => {
+                      field.onChange(e); 
+                      setPassword(e.target.value); 
+                    }}
                   />
                 )}
               />
+              
+          
               <FormControlLabel
                 control={<Checkbox value="remember" color="secondary" />}
                 label="Remember me"
