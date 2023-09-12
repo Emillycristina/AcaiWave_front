@@ -13,9 +13,9 @@ function App() {
     
     <Router>
     <Routes>
-      <Route path='/' element={<Home />}/>
+      <Route path='/' exact element={<Login />}/>
       <Route path='/CriarConta' element={<CriarConta />} />
-      <Route path='/Login' element={<Login />} />
+      <Route path='/Home' element={<Home />} />
       <Route path='/Cadastro' component={Cadastro} />
       <Route path='/LoginUser' component={LoginUser} />
      

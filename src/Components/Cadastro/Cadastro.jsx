@@ -1,221 +1,172 @@
-//import React from 'react'
-import { Box, Button, Container, TextField, InputLabel, Typography} from '@mui/material';
-import logo from '../../assets/açai1.png'
-import { Link } from 'react-router-dom';
-import { useMediaQuery } from '@mui/material';
-//import React from 'react';
 
+import { useState } from "react";
+import Link from "@mui/material/Link";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 
+import Logo from "../../assets/açai1.png";
 
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const EstiloMetadeRoxa = {
-  backgroundColor: '#35155D', 
-  minHeight: '100vh',
-  width: '50%', 
-  float: 'left', 
-  alignItems: 'center',
-  justifyContent: 'center',
- 
-};
-
-const EstiloMetadeBranca = {
-  backgroundColor: '#FFF',
-  minHeight: '100vh',
-  width: '50%', 
-  float: 'right', 
-  
-};
-
-const EstiloContainer = {
-  
-  display: 'flex',
-  padding: 0,
-  margin: 0,
-  width:'100%'
-};
-
-
-const EstiloButton ={
-  backgroundColor: '#35155D',
-  color: '#FFF' ,
-  marginTop: '1.8rem',
-  width: '100%' , 
-
-
-};
-
-const EstiloTitulo ={
-  color:'#35155D',
-  marginTop: '1rem',
-  marginLeft: '0.1rem',
-  fontWeight: 'bold',
-}
-
-
-const EstiloForm = {
-  width: '90%' ,
-  marginTop: '0.5rem',
-  padding: '3rem',
-  
-}
-
-
-
-const EstiloTextField ={
-  height: '2rem',
-  width: '100%'
-}
-
-const EstiloLabel ={
-  color: '#35155D',
-  marginTop: '1.5rem '
-}
-
-
-const Estilofrase ={
-  color: "#d3d3d3",
-  alignText: 'center',
-  marginTop:'1rem',
-  fontSize: '0.8rem'
-
-}
-
-const EstiloLink ={
-  color: '#1A5D1A',
-  fontWeight: 'bold',
-  textDecoration: 'none'
-}
-
-const Estilodiv ={
-  textAlign: 'center',
-  justifyContent: 'center',
-  alignItems: 'center'
-}
-
-
-const Cadastro = () => {
-  const isLargeScreen = useMediaQuery('(min-width: 751px)')
-  
-  
-
+function Copyright(props) {
   return (
-    
-    <Container style={EstiloContainer}>
-      {isLargeScreen ? (
-      <>
-      <Box 
-      style={EstiloMetadeRoxa}>
-        <img  src={logo} alt='logo' />
-      </Box>
-      <Box style={EstiloMetadeBranca}>
-      
-      
-      <form style={EstiloForm}>
-      <Typography variant="h4" style={EstiloTitulo}>
-        Criar conta
-      </Typography>
-
-         <InputLabel  htmlFor="bootstrap-input" style={EstiloLabel}>
-          Nome
-          </InputLabel>
-            <TextField
-              placeholder="Seu nome aqui..."
-              variant="outlined"
-              fullWidth
-              margin="none"
-              size="small"
-              sx={EstiloTextField}
-            />
-            <InputLabel htmlFor="bootstrap-input" style={EstiloLabel}>
-             Email
-            </InputLabel>    
-            <TextField
-              placeholder="ex: 123@hotmail.com"
-              variant="outlined"
-              fullWidth
-              margin="none"
-              size="small"
-              sx={EstiloTextField}
-            />
-            <InputLabel htmlFor="bootstrap-input" style={EstiloLabel}>
-              Senha
-             </InputLabel>
-            <TextField
-              placeholder="******"
-              variant="outlined"
-              fullWidth
-              margin="none"
-              size="small"
-              sx={EstiloTextField}
-            />
-            <Button type="submit" fullWidth style={EstiloButton}>
-              Criar Conta 
-            </Button>
-            <div style={Estilodiv}>
-            <Typography style={Estilofrase}>
-              Já possui uma conta? <Link to='/' style={EstiloLink}>Entrar</Link>
-            </Typography>
-            </div>
-
-        </form>
-      </Box>
-      </>
-      ) : (
-
-     <Box style={EstiloMetadeBranca}>
-      <form style={EstiloForm}>
-      <Typography variant="h4" style={EstiloTitulo}>
-        Criar conta
-      </Typography>
-
-         <InputLabel  htmlFor="bootstrap-input" style={EstiloLabel}>
-          Nome
-          </InputLabel>
-            <TextField
-              placeholder="Seu nome aqui..."
-              variant="outlined"
-              fullWidth
-              margin="none"
-              size="small"
-              sx={EstiloTextField}
-            />
-            <InputLabel htmlFor="bootstrap-input" style={EstiloLabel}>
-             Email
-            </InputLabel>    
-            <TextField
-              placeholder="ex: 123@hotmail.com"
-              variant="outlined"
-              fullWidth
-              margin="none"
-              size="small"
-              sx={EstiloTextField}
-            />
-            <InputLabel htmlFor="bootstrap-input" style={EstiloLabel}>
-              Senha
-             </InputLabel>
-            <TextField
-              placeholder="******"
-              variant="outlined"
-              fullWidth
-              margin="none"
-              size="small"
-              sx={EstiloTextField}
-            />
-            <Button type="submit" fullWidth style={EstiloButton}>
-              Criar Conta 
-            </Button>
-            <div style={Estilodiv}>
-            <Typography style={Estilofrase}>
-              Já possui uma conta? <Link to='/' style={EstiloLink}>Entrar</Link>
-            </Typography>
-            </div>
-
-        </form>
-      </Box>
-      )}
-    </Container>
-      
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
+      <Link color="inherit" href="https://mui.com/">
+        Açaiwave
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
   );
 }
 
-export default Cadastro
+const defaultTheme = createTheme();
+
+const Cadastro = () => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [password, setPassword] = useState("");
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get("email"),
+      password: data.get("password"),
+    });
+  };
+
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <Grid container component="main" sx={{ height: "100vh", minHeight: 400 }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={4}
+          md={7}
+          sx={{
+            backgroundImage: `url(${Logo})`,
+            backgroundColor: "#35155D",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            position: "relative",
+          }}
+        />
+
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+          <Box
+            sx={{
+              my: 8,
+              mx: 4,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            
+
+            <Typography component="h1" variant="h5" sx={{ color: "#35155D" }}>
+              Sign Up
+            </Typography>
+            <Box
+              component="form"
+              noValidate
+              onSubmit={handleSubmit}
+              sx={{ mt: 1 }}
+            >
+           <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="name"
+                label="Name"
+                name="name"
+                color="secondary"
+                autoComplete="name"
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                color="secondary"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+              />
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                id="password"
+                color="secondary"
+                type={passwordVisible ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
+              />
+              <Box
+                onClick={togglePasswordVisibility}
+                sx={{
+                  cursor: "pointer",
+                  position: "absolute",
+                  top: "93%",
+                  transform: "translateY(-50%)",
+                  right: "45px",
+                }}
+              >
+                {passwordVisible ? <FaEye  /> : <FaEyeSlash />}
+              </Box>
+              
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2, backgroundColor:"#35155D" }}
+              >
+                Sign In
+              </Button>
+              <Grid
+                container
+                sx={{
+                  alignItems: "center",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <Grid item>
+                  <Link href="/" variant="body" sx={{textDecoration: 'none', color:"#d6d5d5" }}>
+                    {"Have an account? Sign in"}
+                  </Link>
+                </Grid>
+              </Grid>
+              <Copyright sx={{ mt: 5 }} />
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
+    </ThemeProvider>
+  );
+};
+
+export default Cadastro;
