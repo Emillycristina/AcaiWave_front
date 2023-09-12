@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import Link from "@mui/material/Link";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 
@@ -15,6 +15,18 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import InputAdornment from "@mui/material/InputAdornment";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const validationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .required("O e-mail é obrigatório")
+    .email("E-mail inválido"),
+  password: yup.string().required("Senha é obrigatória"),
+});
 
 function Copyright(props) {
   return (
@@ -37,6 +49,14 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 const Login = () => {
+  const {
+    handleSubmit: handleSubmitForm,
+    control,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
+
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [password, setPassword] = useState("");
 
@@ -44,14 +64,7 @@ const Login = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
+  const onSubmit = (data) => console.log(data);
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -64,7 +77,7 @@ const Login = () => {
           md={7}
           sx={{
             backgroundImage: `url(${Logo})`,
-            backgroundColor: '#35155D',
+            backgroundColor: "#35155D",
             backgroundSize: "cover",
             backgroundPosition: "center",
             position: "relative",
@@ -87,56 +100,74 @@ const Login = () => {
             <Box
               component="form"
               noValidate
-              onSubmit={handleSubmit}
+              onSubmit={handleSubmitForm(onSubmit)}
               sx={{ mt: 1 }}
             >
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
+              <Controller
                 name="email"
-                autoComplete="email"
-                color="secondary"
-                autoFocus
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    margin="normal"
+                    fullWidth
+                    id="email"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    color="secondary"
+                    autoFocus
+                    error={!!errors.email}
+                    helperText={errors.email ? errors.email.message : ""}
+                  />
+                )}
               />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
+              <Controller
                 name="password"
-                label="Password"
-                id="password"
-                color="secondary"
-                type={passwordVisible ? "text" : "password"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                autoComplete="current-password"
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <Box
-                        onClick={togglePasswordVisibility}
-                        sx={{
-                          cursor: "pointer",
-                        }}
-                      >
-                 {passwordVisible ? <FaEye  /> : <FaEyeSlash />}
-                 </Box>
-              </InputAdornment>
-                  ),
-                }}
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    margin="normal"
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    id="password"
+                    color="secondary"
+                    type={passwordVisible ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    autoComplete="current-password"
+                    error={!!errors.password}
+                    helperText={errors.password ? errors.password.message : ""}
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <Box
+                            onClick={togglePasswordVisibility}
+                            sx={{
+                              cursor: "pointer",
+                            }}
+                          >
+                            {passwordVisible ? <FaEye /> : <FaEyeSlash />}
+                          </Box>
+                        </InputAdornment>
+                      ),
+                    }}
+                  />
+                )}
               />
               <FormControlLabel
-                control={<Checkbox value="remember" color="secondary"/>}
+                control={<Checkbox value="remember" color="secondary" />}
                 label="Remember me"
               />
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 , backgroundColor: "#35155D" }}
+                sx={{ mt: 3, mb: 2, backgroundColor: "#35155D" }}
               >
                 Sign In
               </Button>
@@ -148,8 +179,12 @@ const Login = () => {
                   flexDirection: "column",
                 }}
               >
-              <Grid item>
-                  <Link href="/CriarConta" variant="body" sx={{textDecoration: 'none', color:"#d6d5d5"  }}>
+                <Grid item>
+                  <Link
+                    href="/CriarConta"
+                    variant="body"
+                    sx={{ textDecoration: "none", color: "#d6d5d5" }}
+                  >
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

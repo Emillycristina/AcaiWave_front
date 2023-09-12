@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useState} from "react";
 import Link from "@mui/material/Link";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 
@@ -14,6 +13,33 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import InputAdornment from "@mui/material/InputAdornment";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useForm, Controller,useFormState } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+  name: yup
+    .string()
+    .required("O nome é obrigatório")
+    .min(5, "O nome deve ter 5 cacteres ou mais")
+    .max(25, "O nome deve ter no máximo 20 caracteres"),
+  email: yup
+    .string()
+    .required("O e-mail é obrigatório")
+    .email("E-mail inválido")
+    .test("format", "O e-mail deve ser no formato padrão", (value) => {
+      return /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(value);
+    }),
+  password: yup
+    .string()
+    .min(8, "A senha deve ter pelo menos 8 caracteres")
+    .max(12, "A senha deve conter até 12 caracteres")
+    .required("Senha é obrigatória")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\.)[a-zA-Z\d.]+$/,
+      "A senha deve conter pelo menos uma letra minúscula e maiúscula, um caractere especial e um número"
+    ),
+});
 
 function Copyright(props) {
   return (
@@ -36,20 +62,37 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 const Cadastro = () => {
+  const {
+    handleSubmit: handleSubmitForm,
+    control,
+    setError,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+  const formState = useFormState({control})
+
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [password, setPassword] = useState("");
+  
+  
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const onSubmit = (data) => {
+    // Verifique se todos os campos estão vazios
+    if (!data.username && !data.password && !data.email) {
+      // Exibir uma mensagem de erro ou feedback ao usuário
+      setError("form", {
+        type: "manual",
+        message: "Preencha pelo menos um campo",
+      });
+    } else {
+      // Executar ação de envio do formulário aqui
+      console.log("Dados enviados:", data);
+    }
   };
 
   return (
@@ -80,73 +123,105 @@ const Cadastro = () => {
               alignItems: "center",
             }}
           >
-            
-
             <Typography component="h1" variant="h5" sx={{ color: "#35155D" }}>
               Sign Up
             </Typography>
             <Box
               component="form"
               noValidate
-              onSubmit={handleSubmit}
+              onSubmit={handleSubmitForm(onSubmit)}
               sx={{ mt: 1 }}
             >
-           <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="name"
-                label="Name"
+              <Controller
                 name="name"
-                color="secondary"
-                autoComplete="name"
-                autoFocus
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="name"
+                    label="Name"
+                    name="name"
+                    color="secondary"
+                    autoComplete="name"
+                    autoFocus
+                    error={!!errors.name}
+                    helperText={errors.name ? errors.name.message : ""}
+                  />
+                )}
               />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                color="secondary"
-                label="Email Address"
+              <Controller
                 name="email"
-                autoComplete="email"
-                autoFocus
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="email"
+                    color="secondary"
+                    label="Email Address"
+                    name="email"
+                    autoComplete="email"
+                    autoFocus
+                    error={!!errors.email}
+                    helperText={errors.email ? errors.email.message : ""}
+                  />
+                )}
               />
-              <TextField
-                margin="normal"
-                required
-                fullWidth
+              <Controller
                 name="password"
-                label="Password"
-                id="password"
-                color="secondary"
-                type={passwordVisible ? "text" : "password"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                autoComplete="current-password"
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <Box
-                        onClick={togglePasswordVisibility}
-                        sx={{
-                          cursor: "pointer",
-                        }}
-                      >
-                 {passwordVisible ? <FaEye  /> : <FaEyeSlash />}
-                 </Box>
-              </InputAdornment>
-                  ),
-                }}
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <TextField
+                    {...field}
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    id="password"
+                    color="secondary"
+                    type={passwordVisible ? "text" : "password"}
+                    value={password}
+                    autoComplete="current-password"
+                    error={!!errors.password}
+                    helperText={errors.password ? errors.password.message : ""}
+                     InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <Box
+                            onClick={togglePasswordVisibility}
+                            sx={{
+                              cursor: "pointer",
+                            }}
+                          >
+                            {passwordVisible ? <FaEye /> : <FaEyeSlash />}
+                          </Box>
+                        </InputAdornment>
+                      ),
+                    }}
+                    onChange={(e) => {
+                      field.onChange(e); 
+                      setPassword(e.target.value); 
+                    }}
+                  />
+                )}
               />
               
-              
+          
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2, backgroundColor:"#35155D" }}
+                sx={{ mt: 3, mb: 2, backgroundColor: "#35155D" }}
+                disabled={!formState.isDirty || Object.keys(errors).length > 0}
               >
                 Sign In
               </Button>
@@ -159,7 +234,11 @@ const Cadastro = () => {
                 }}
               >
                 <Grid item>
-                  <Link href="/" variant="body" sx={{textDecoration: 'none', color:"#d6d5d5" }}>
+                  <Link
+                    href="/"
+                    variant="body"
+                    sx={{ textDecoration: "none", color: "#d6d5d5" }}
+                  >
                     {"Have an account? Sign in"}
                   </Link>
                 </Grid>
