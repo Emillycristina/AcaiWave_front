@@ -13,6 +13,7 @@ import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import InputAdornment from "@mui/material/InputAdornment";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function Copyright(props) {
@@ -112,19 +113,21 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="current-password"
-              />
-              <Box
-                onClick={togglePasswordVisibility}
-                sx={{
-                  cursor: "pointer",
-                  position: "absolute",
-                  top: "80%",
-                  transform: "translateY(-50%)",
-                  right: "45px",
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <Box
+                        onClick={togglePasswordVisibility}
+                        sx={{
+                          cursor: "pointer",
+                        }}
+                      >
+                 {passwordVisible ? <FaEye  /> : <FaEyeSlash />}
+                 </Box>
+              </InputAdornment>
+                  ),
                 }}
-              >
-                {passwordVisible ? <FaEye  /> : <FaEyeSlash />}
-              </Box>
+              />
               <FormControlLabel
                 control={<Checkbox value="remember" color="secondary"/>}
                 label="Remember me"
