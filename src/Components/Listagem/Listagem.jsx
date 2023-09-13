@@ -17,27 +17,33 @@ import Divider from '@mui/material/Divider';
 function Listagem() {
 
   const cardStyle = {
-    maxWidth: '500px', // Set your desired maximum card width
-    margin: '10px auto', // Center the card horizontally
+    maxWidth: '500px', 
+    margin: '10px auto', 
   };
   
   return (
     <div>
       <Grid container spacing={3}>
-      <Divider sx={{ marginTop:'50px', width:'35%', variant: 'fullwidth', height: '1px', backgroundColor: '#35155D' }}/>
+      <Divider sx={{ marginTop:'50px', width:'35%', variant: 'fullwidth', height: '1px', backgroundColor: '--color-lilas' }}/>
       <Typography variant="h5" component="div"  sx={{color: '#35155D', marginTop: 5, marginX: auto}}>
                 Próximos Pedidos
               </Typography>
-      <Divider sx={{ marginTop:'50px', width:'35%', variant: 'fullwidth', height: '1px', backgroundColor: '#35155D' }}/>
+      <Divider sx={{ marginTop:'50px', width:'35%', variant: 'fullwidth', height: '1px', backgroundColor: '--color-lilas' }}/>
         <Grid item xs={12}>
           <Card style={cardStyle}>
             <CardContent>
+              <Grid justifyContent="center">
+
               <Typography variant="h5" component="div">
                 Card 1
               </Typography>
+
+
               <Typography color="text.secondary">
                 This is the content of Card 1. You can put any text or components here.
               </Typography>
+
+              </Grid>
             </CardContent>
             <CardActions>
             </CardActions>
