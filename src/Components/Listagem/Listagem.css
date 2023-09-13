@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+
+  background-color: #d9d9d9;
+}
+
+.topo {
+  background-color: #35155d;
+  margin: 0px;
+  position: sticky;
+  box-shadow: -5px 2px 10px black;
+  box-shadow: 5px 2px 10px black;
+  border-style: none none solid none;
+  border-color: black;
+  border-width: 1px;
+}
+
+.tigela {
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  object-position: 0px -90px;
+}
+
+.backtigela {
+  margin: 0px;
+  width: 100%;
+  height: 500px;
+  overflow-y: hidden;
+}
+
+.proxped {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  margin-top: 0px;
+
+  text-align: center;
+  color: #35155d;
+  font-size: 36px;
+  background-color: #d9d9d9;
+}
+
+.proxped table {
+  width: 100%;
+}
+
+.proxped td {
+  width: 25%;
+}
+
+.proxped hr {
+  height: 2px;
+  border-width: 0px;
+  color: #35155d;
+  background-color: #35155d;
+}
+
+.itembox {
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  width: 1006px;
+  height: 330px;
+
+  color: #35155d;
+  font-size: 36px;
+  background-color: white;
+  font-weight: 1200;
+}
+
+.itemboxleft {
+  width: 262px;
+  text-align: center;
+}
+
+h3 {
+  margin-top: 10px;
+}
+
+.itemboxright {
+    position: relative;
+  margin-left: 20px;
+  margin-right: 20px;
+  /* width: 600px; */
+  top: -100px;
+}
+
+.itemboxright td {
+  /* background-color: aqua; */
+  width: 500px;
+  height: 70px;
+  text-align: center;
+}
