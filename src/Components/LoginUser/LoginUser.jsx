@@ -36,9 +36,9 @@ function Copyright(props) {
       align="center"
       {...props}
     >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        AçaiWave
+      {"Copyright "}
+      <Link color="secondary" href="https://mui.com/">
+      © Açaiwave
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -92,10 +92,11 @@ const Login = () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              marginTop: '25%'
             }}
           >
-            <Typography component="h1" variant="h5" sx={{ color: "#35155D" }}>
-              Sign in
+            <Typography component="h1" variant="h5" sx={{ color: "#35155D", padding:'16px'}}>
+              Entrar
             </Typography>
             <Box
               component="form"
@@ -113,7 +114,7 @@ const Login = () => {
                     margin="normal"
                     fullWidth
                     id="email"
-                    label="Email Address"
+                    label="Email "
                     name="email"
                     autoComplete="email"
                     color="secondary"
@@ -134,7 +135,7 @@ const Login = () => {
                     required
                     fullWidth
                     name="password"
-                    label="Password"
+                    label="Senha"
                     id="password"
                     color="secondary"
                     type={passwordVisible ? "text" : "password"}
@@ -163,19 +164,15 @@ const Login = () => {
                   />
                 )}
               />
+
               
-          
-              <FormControlLabel
-                control={<Checkbox value="remember" color="secondary" />}
-                label="Remember me"
-              />
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2, backgroundColor: "#35155D" }}
               >
-                Sign In
+                Entrar
               </Button>
               <Grid
                 container
@@ -186,12 +183,20 @@ const Login = () => {
                 }}
               >
                 <Grid item>
+                  <span style={{ color: "#d6d5d5" }}>Não possui uma conta? </span>
                   <Link
                     href="/CriarConta"
                     variant="body"
-                    sx={{ textDecoration: "none", color: "#d6d5d5" }}
+                    sx={{  textDecoration: "none",
+                    color: "#d6d5d5",
+                    "&:hover": {
+                      color: "#35155D",
+                    },
+                    "&:active": {
+                      color: "#35155D",
+                    }, }}
                   >
-                    {"Don't have an account? Sign Up"}
+                    Cadastre-se 
                   </Link>
                 </Grid>
               </Grid>

@@ -48,10 +48,11 @@ function Copyright(props) {
       color="text.secondary"
       align="center"
       {...props}
+      
     >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Açaiwave
+      {"Copyright  "}
+      <Link color="secondary" href="https://mui.com/">
+      © Açaiwave
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -97,7 +98,7 @@ const Cadastro = () => {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main" sx={{ height: "100vh", minHeight: 400 }}>
+      <Grid container component="main" sx={{ height: "100vh", minHeight: 400,}}>
         <CssBaseline />
         <Grid
           item
@@ -121,10 +122,11 @@ const Cadastro = () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
+              marginTop: '25%'
             }}
           >
-            <Typography component="h1" variant="h5" sx={{ color: "#35155D" }}>
-              Sign Up
+            <Typography component="h1" variant="h5" sx={{ color: "#35155D", padding:'16px' }}>
+              Criar Conta
             </Typography>
             <Box
               component="form"
@@ -143,7 +145,7 @@ const Cadastro = () => {
                     required
                     fullWidth
                     id="name"
-                    label="Name"
+                    label="Nome"
                     name="name"
                     color="secondary"
                     autoComplete="name"
@@ -165,7 +167,7 @@ const Cadastro = () => {
                     fullWidth
                     id="email"
                     color="secondary"
-                    label="Email Address"
+                    label="Email"
                     name="email"
                     autoComplete="email"
                     autoFocus
@@ -185,7 +187,7 @@ const Cadastro = () => {
                     required
                     fullWidth
                     name="password"
-                    label="Password"
+                    label="Senha"
                     id="password"
                     color="secondary"
                     type={passwordVisible ? "text" : "password"}
@@ -215,7 +217,6 @@ const Cadastro = () => {
                 )}
               />
               
-          
               <Button
                 type="submit"
                 fullWidth
@@ -223,7 +224,7 @@ const Cadastro = () => {
                 sx={{ mt: 3, mb: 2, backgroundColor: "#35155D" }}
                 disabled={!formState.isDirty || Object.keys(errors).length > 0}
               >
-                Sign In
+                Criar Conta
               </Button>
               <Grid
                 container
@@ -234,12 +235,20 @@ const Cadastro = () => {
                 }}
               >
                 <Grid item>
+                <span style={{ color: "#d6d5d5" }}>Não possui uma conta? </span>
                   <Link
                     href="/"
                     variant="body"
-                    sx={{ textDecoration: "none", color: "#d6d5d5" }}
+                    sx={{  textDecoration: "none",
+                    color: "#d6d5d5",
+                    "&:hover": {
+                      color: "#35155D",
+                    },
+                    "&:active": {
+                      color: "#35155D",
+                    }, }}
                   >
-                    {"Have an account? Sign in"}
+                    Entrar
                   </Link>
                 </Grid>
               </Grid>
@@ -252,4 +261,4 @@ const Cadastro = () => {
   );
 };
 
-export default Cadastro;
+export default Cadastro
