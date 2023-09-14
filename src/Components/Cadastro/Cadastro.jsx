@@ -17,6 +17,10 @@ import { useForm, Controller,useFormState } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+
+
+
+
 const schema = yup.object().shape({
   name: yup
     .string()
@@ -51,7 +55,7 @@ function Copyright(props) {
       
     >
       {"Copyright  "}
-      <Link color="secondary" href="https://mui.com/">
+      <Link color="secondary" href="/">
       © Açaiwave
       </Link>{" "}
       {new Date().getFullYear()}
@@ -71,10 +75,14 @@ const Cadastro = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const formState = useFormState({control})
 
+  const formState = useFormState({control});
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [password, setPassword] = useState("");
+  
+
+ 
+  
   
   
 
@@ -82,9 +90,10 @@ const Cadastro = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+
     // Verifique se todos os campos estão vazios
-    if (!data.username && !data.password && !data.email) {
+    if (!data.name && !data.password && !data.email) {
       // Exibir uma mensagem de erro ou feedback ao usuário
       setError("form", {
         type: "manual",
@@ -92,8 +101,33 @@ const Cadastro = () => {
       });
     } else {
       // Executar ação de envio do formulário aqui
-      console.log("Dados enviados:", data);
+      const formData = {
+        name: data.name,
+        password: data.password,
+        email: data.email,
+      };
+    
+    try {
+      const response = await fetch('http://34.41.148.34/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Lidar com a resposta da API em caso de sucesso
+        alert("Cadastro efetuado com sucesso!");
+      } else {
+        // Lidar com a resposta da API em caso de falha
+        console.error("Falha no login");
+      }
+    } catch (error) {
+      // Lidar com erros de rede ou outros erros
+      console.error('Erro ao fazer a solicitação:', error);
     }
+   }
   };
 
   return (
