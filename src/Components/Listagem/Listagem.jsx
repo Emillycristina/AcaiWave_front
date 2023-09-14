@@ -13,6 +13,7 @@ import Divider from "@mui/material/Divider";
 // import style from './Listagem.css';
 import copo from "../../assets/copo 1.png";
 import CardMedia from "@mui/material/CardMedia";
+import { Button } from "@mui/material";
 
 function Listagem() {
   const cardStyle = {
@@ -23,7 +24,7 @@ function Listagem() {
   return (
     <div>
       <Grid container spacing={3}>
-        <Divider
+        {/* <Divider
           sx={{
             marginTop: "50px",
             width: "35%",
@@ -31,7 +32,7 @@ function Listagem() {
             height: "1px",
             backgroundColor: "--color-lilas",
           }}
-        />
+        /> */}
         <Typography
           variant="h5"
           component="div"
@@ -39,7 +40,7 @@ function Listagem() {
         >
           Próximos Pedidos
         </Typography>
-        <Divider
+        {/* <Divider
           sx={{
             marginTop: "50px",
             width: "35%",
@@ -47,7 +48,7 @@ function Listagem() {
             height: "1px",
             backgroundColor: "--color-lilas",
           }}
-        />
+        /> */}
         <Grid item xs={12}>
           <Card style={cardStyle} sx={{ display: "flex" }}>
             <Grid justifyContent="center">
@@ -57,7 +58,7 @@ function Listagem() {
               image={copo}
               alt="copo"
             />
-            <Typography variant="h5" component="div" sx={{marginLeft: "20px", color: "--color-lilas"}}>400mL</Typography>
+            <Typography variant="h5" component="div" sx={{marginLeft: "20px", color: "#512B81", fontWeight: 700}}>400mL</Typography>
             </Grid>
             <CardContent>
               <Grid justifyContent="center">
@@ -68,6 +69,7 @@ function Listagem() {
                   This is the content of Card 1. You can put any text or
                   components here.
                 </Typography>
+                <Button sx={{position:"relative", marginLeft:"240px", marginTop:"15px"}}>Finalizar</Button>
               </Grid>
             </CardContent>
             <CardActions></CardActions>
