@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from '../pages/Home';
 import Login  from '../pages/Login';
 import Cadastro from '../src/Components/Cadastro/Cadastro';
+import CarouselImage from '../src/Components/Corousel/CarouselImage';
 import CriarConta from '../pages/CriarConta';
 import LoginUser from './Components/LoginUser/LoginUser';
 import Listagem from './Components/Listagem/Listagem';
@@ -13,7 +14,7 @@ function App() {
 
   return (
     
-    <Router>
+  <Router>
     <Routes>
       <Route path='/' exact element={<Login />}/>
       <Route path='/CriarConta' element={<CriarConta />} />
@@ -22,7 +23,7 @@ function App() {
       <Route path='/LoginUser' component={LoginUser} />
       <Route path='/Listagem' component={Listagem} />
       <Route path='/Navbar' component={Navbar} />
-      
+      <Route path='/CarouselImage' component={CarouselImage} />
     </Routes>
   </Router>
       
