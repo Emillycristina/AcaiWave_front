@@ -52,30 +52,82 @@ function Listagem() {
         <Grid item xs={12}>
           <Card style={cardStyle} sx={{ display: "flex" }}>
             <Grid justifyContent="center">
-            <CardMedia
-              component="img"
-              sx={{ height: "151px", width: "100px" }}
-              image={copo}
-              alt="copo"
-            />
-            <Typography variant="h5" component="div" sx={{marginLeft: "20px", color: "#512B81", fontWeight: 700}}>400mL</Typography>
+              <CardMedia
+                component="img"
+                sx={{ height: "151px", width: "100px" }}
+                image={copo}
+                alt="copo"
+              />
+              <Typography
+                variant="h5"
+                component="div"
+                sx={{ marginLeft: "20px", color: "#512B81", fontWeight: 700 }}
+              >
+                400mL
+              </Typography>
             </Grid>
             <CardContent>
-              <Grid justifyContent="center">
-                <Typography variant="h5" component="div">
-                  Card 1
-                </Typography>
-                <Typography color="text.secondary">
-                  This is the content of Card 1. You can put any text or
-                  components here.
-                </Typography>
-                <Button sx={{position:"relative", marginLeft:"240px", marginTop:"15px"}}>Finalizar</Button>
+              <Grid container spacing={2}>
+                <Grid item xs={6} justifyContent="center">
+                  <Typography
+                    variant="h5"
+                    component="div"
+                    sx={{ color: "#512B81", marginLeft: "10px" }}
+                  >
+                    Card 1
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    component="div"
+                    sx={{ color: "#512B81", marginLeft: "10px" }}
+                  >
+                    Card 1
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    component="div"
+                    sx={{ color: "#512B81", marginLeft: "10px" }}
+                  >
+                    Card 1
+                  </Typography>
+                </Grid>
+                <Grid item xs={6} justifyContent="center">
+                  <Typography
+                    variant="h5"
+                    component="div"
+                    sx={{ color: "#512B81", marginLeft: "10px" }}
+                  >
+                    Card 1
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    component="div"
+                    sx={{ color: "#512B81", marginLeft: "10px" }}
+                  >
+                    Card 1
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    component="div"
+                    sx={{ color: "#512B81", marginLeft: "10px" }}
+                  >
+                    Card 1
+                  </Typography>
+                  <Button
+                    sx={{
+                      position: "relative",
+                      marginLeft: "240px",
+                      marginTop: "15px",
+                    }}
+                  >
+                    Finalizar
+                  </Button>
+                </Grid>
               </Grid>
             </CardContent>
             <CardActions></CardActions>
           </Card>
         </Grid>
-        
       </Grid>
     </div>
   );
