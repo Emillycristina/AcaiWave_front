@@ -37,12 +37,8 @@ const schema = yup.object().shape({
   password: yup
     .string()
     .min(8, "A senha deve ter pelo menos 8 caracteres")
-    .max(12, "A senha deve conter até 12 caracteres")
-    .required("Senha é obrigatória")
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*\.)[a-zA-Z\d.]+$/,
-      "A senha deve conter pelo menos uma letra minúscula e maiúscula, um caractere especial e um número"
-    ),
+    .required("Senha é obrigatória"),
+  
 });
 
 function Copyright(props) {

@@ -26,7 +26,7 @@ function App() {
       <Route path='/CriarConta' element={<CriarConta />} />
       <Route path='/Home' element={<Home />} />
       <Route path='/Pedidos' element={<Pedidos />} />
-      <Route path='/PedidoSatus' element={<PedidoStatus/>} />
+      <Route path='/PedidoStatus' element={<PedidoStatus/>} />
       <Route path='/Cadastro' component={Cadastro} />
       <Route path='/LoginUser' component={LoginUser} />
       <Route path='/Listagem' component={Listagem} />

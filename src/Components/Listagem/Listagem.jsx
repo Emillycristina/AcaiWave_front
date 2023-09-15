@@ -7,7 +7,6 @@ import CardActions from "@mui/material/CardActions";
 // import Button from '@mui/material/Button';
 import CardContent from "@mui/material/CardContent";
 import { auto } from "@popperjs/core";
-import Divider from "@mui/material/Divider";
 
 // import Divider from '@mui/material/Divider';
 // import style from './Listagem.css';
