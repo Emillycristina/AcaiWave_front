@@ -16,13 +16,15 @@ function App() {
     <div style={{ padding: 40 }}>
       <Box
         sx={{
-          marginTop: "5rem",
+          marginTop: "25px",
           alignItems: "center",
           justifyContent: "center",
           display: "flex",
         }}
       >
-        <Typography sx={{ color: "#35155D" }}>Monte Seu Pedido</Typography>
+        <Typography variant='h5' component='div' 
+        sx={{ color: "#35155D",  alignItems: "center",
+        justifyContent: "center",}}>Monte Seu Pedido</Typography>
       </Box>
       <Grid
         container
@@ -62,21 +64,43 @@ function App() {
           </Paper>
         </Grid>
       </Grid>
-      <Box sx={{ width: '100%' , padding:'30px', display:'flex', }}>
-      <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+
+      <Box sx={{ width: '50%' , padding:'30px', display:'center', alignContent:'space-evenly', alignItems: 'center' }}>
+      <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 2 }}>
         <Grid  xs={6} sx={{margin:'2px', }} >
-          <Item>1</Item>
+          <Item>Banana</Item>
         </Grid>
         <Grid xs={6} sx={{margin:'2px'}} >
-        <Item>1</Item>
+        <Item>Granola</Item>
         </Grid>
         <Grid xs={6} sx={{margin:'2px'}} >
-        <Item>1</Item>
+        <Item>Morango</Item>
         </Grid>
         <Grid xs={6} sx={{margin:'2px'}}>
-        <Item>1</Item>
+        <Item>Abacaxi</Item>
         </Grid>
-      </Grid>
+        <Grid xs={6} sx={{margin:'2px'}}>
+        <Item>Manga</Item>
+        </Grid>
+        </Grid>
+
+        <Grid container rowSpacing={2} columnSpacing={{ xs: 1, sm: 2, md: 2 }}>
+        <Grid xs={6} sx={{margin:'2px'}}>
+        <Item>Leite Cond</Item>
+        </Grid>
+        <Grid xs={6} sx={{margin:'2px'}}>
+        <Item>Conferte</Item>
+        </Grid>
+        <Grid xs={6} sx={{margin:'2px'}}>
+        <Item>Sufler</Item>
+        </Grid>
+        <Grid xs={6} sx={{margin:'2px'}}>
+        <Item>Leite em pó</Item>
+        </Grid>
+        <Grid xs={6} sx={{margin:'2px'}}>
+        <Item>Kiwi</Item>
+        </Grid>
+        </Grid>
       </Box>
     </div>
   );
