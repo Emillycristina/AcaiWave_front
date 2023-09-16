@@ -12,6 +12,7 @@ import Pedidos from '../pages/Pedidos'
 import PedidoStatus from '../pages/PedidoStatus';
 import MontarPedido from '../src/Components/MontarPedido/MontarPedido';
 import StatusPedido from '../src/Components/StatusPedido/StatusPedido';
+import Protected from '../pages/Protected';
 
 
 
@@ -26,6 +27,7 @@ function App() {
       <Route path='/CriarConta' element={<CriarConta />} />
       <Route path='/Home' element={<Home />} />
       <Route path='/Pedidos' element={<Pedidos />} />
+      <Route path='/Protected' element={<Protected />} />
       <Route path='/PedidoStatus' element={<PedidoStatus/>} />
       <Route path='/Cadastro' component={Cadastro} />
       <Route path='/LoginUser' component={LoginUser} />

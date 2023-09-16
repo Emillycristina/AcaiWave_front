@@ -18,6 +18,49 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+const onSend = async (data) => {
+
+  // Verifique se todos os campos estão vazios
+  if (!data.password && !data.email) {
+    // Exibir uma mensagem de erro ou feedback ao usuário
+    alert('Preencha os dados para realizar o login')
+  } else {
+    // Executar ação de envio do formulário aqui
+    const formData = {
+      password: data.password,
+      email: data.email,
+    };
+  
+  try {
+    const response = await fetch('http://34.41.148.34/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      // Lidar com a resposta da API em caso de sucesso
+      window.location.href = '/protected';
+    } else {
+      // Lidar com a resposta da API em caso de falha
+      alert("E-mail e/ou senha incorretos!");
+    }
+  } catch (error) {
+    // Lidar com erros de rede ou outros erros
+    console.error('Erro ao fazer a solicitação:', error);
+  }
+ }
+};
+
+
+
+
+
+
+
+
 const validationSchema = yup.object().shape({
   email: yup
     .string()
@@ -62,7 +105,6 @@ const Login = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  const onSubmit = (data) => console.log(data);
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -99,7 +141,7 @@ const Login = () => {
             <Box
               component="form"
               noValidate
-              onSubmit={handleSubmitForm(onSubmit)}
+              onSubmit={handleSubmitForm(onSend)}
               sx={{ mt: 1 }}
             >
               <Controller

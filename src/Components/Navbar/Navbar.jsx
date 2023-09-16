@@ -26,8 +26,17 @@ const Navbar = () => {
         <ListItem  component={Link} to="/" onClick={toggleDrawer}>
           <ListItemText secondary="ENTRAR" style={{ color: "#fff", textDecoration: "none", cursor:"pointer"}} />
         </ListItem>
+        <ListItem  component={Link} to="/Home" onClick={toggleDrawer}>
+          <ListItemText secondary="HOME" style={{ textDecoration: "none", cursor:"pointer"}} />
+        </ListItem>
+        <ListItem  component={Link} to="/Pedidos" onClick={toggleDrawer}>
+          <ListItemText secondary="PEDIDOS" style={{ textDecoration: "none", cursor:"pointer"}} />
+        </ListItem>
         <ListItem  component={Link} to="/CriarConta" onClick={toggleDrawer}>
           <ListItemText secondary="CADASTRAR" style={{ textDecoration: "none", cursor:"pointer"}} />
+        </ListItem>
+        <ListItem  component={Link} to="/" onClick={toggleDrawer}>
+          <ListItemText secondary="SAIR" style={{ textDecoration: "none", cursor:"pointer"}} />
         </ListItem>
       </List>
     );
@@ -49,12 +58,27 @@ const Navbar = () => {
         <Grid container spacing={1} >
           <Grid item sx={{ marginLeft: 'auto' }}>
             <Typography variant='body' sx={{ color: '#FFF', marginRight: '2rem', cursor: 'pointer' }}>
-              Cadastrar
+              Home
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant='body' sx={{ color: '#FFF', cursor: 'pointer', marginRight: '2rem' }}>
+              Pedidos
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant='body' sx={{ color: '#FFF', cursor: 'pointer', marginRight: '2rem' }}>
+            Cadastrar
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant='body' sx={{ color: '#FFF', cursor: 'pointer', marginRight: '2rem' }}>
+              Entrar
             </Typography>
           </Grid>
           <Grid item>
             <Typography variant='body' sx={{ color: '#FFF', cursor: 'pointer' }}>
-              Entrar
+              Sair
             </Typography>
           </Grid>
         </Grid>

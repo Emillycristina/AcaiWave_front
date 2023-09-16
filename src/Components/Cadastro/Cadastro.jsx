@@ -79,10 +79,7 @@ const Cadastro = () => {
 
  
   
-  
-  
-
-  const togglePasswordVisibility = () => {
+ const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 

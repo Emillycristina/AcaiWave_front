@@ -1,4 +1,4 @@
-import * as React from "react";
+
 import Table from "@mui/material/Table";
 import { TableBody, TableContainer } from "@mui/material";
 import { TableCell } from "@mui/material";
@@ -13,7 +13,10 @@ function createData(numero, nome, status) {
   return { numero, nome, status };
 }
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
+
+  
+
+const StyledTableRow = styled(TableRow)(({  }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: "#512B81",
     borderRadius:"25px",
@@ -23,15 +26,17 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-const StyledLeftCell = styled(TableCell)(({ theme }) => ({
+const StyledLeftCell = styled(TableCell)(({  }) => ({
   borderRadius:"25px 0px 0px 25px"
 }));
 
-const StyledRightCell = styled(TableCell)(({ theme }) => ({
+const StyledRightCell = styled(TableCell)(({  }) => ({
   borderRadius:"0px 25px 25px 0px"
 }));
 
 const StatusPedido = () => {
+  
+  
   const rows = [
     createData(1, "Jorge", "Preparando"),
     createData(2, "Jorge", "Preparando"),
