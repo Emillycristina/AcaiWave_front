@@ -7,12 +7,13 @@ import Grid from '@mui/material/Grid';
 import {useMediaQuery, useTheme, List, ListItem, ListItemText, Link, Drawer } from '@mui/material/'
 import Logo from '../../assets/açai1.png'
 import { AiOutlineMenu } from "react-icons/ai";
-
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [openDrawer, setOpenDrawer] = React.useState(false);
+  const location = useLocation();
 
   
  
@@ -21,26 +22,31 @@ const Navbar = () => {
   };
 
   const renderNavLinks = () => {
-    return (
-      <List>
-        <ListItem  component={Link} to="/" onClick={toggleDrawer}>
-          <ListItemText secondary="ENTRAR" style={{ color: "#fff", textDecoration: "none", cursor:"pointer"}} />
-        </ListItem>
-        <ListItem  component={Link} to="/Home" onClick={toggleDrawer}>
-          <ListItemText secondary="HOME" style={{ textDecoration: "none", cursor:"pointer"}} />
-        </ListItem>
-        <ListItem  component={Link} to="/Pedidos" onClick={toggleDrawer}>
-          <ListItemText secondary="PEDIDOS" style={{ textDecoration: "none", cursor:"pointer"}} />
-        </ListItem>
-        <ListItem  component={Link} to="/CriarConta" onClick={toggleDrawer}>
-          <ListItemText secondary="CADASTRAR" style={{ textDecoration: "none", cursor:"pointer"}} />
-        </ListItem>
-        <ListItem  component={Link} to="/" onClick={toggleDrawer}>
-          <ListItemText secondary="SAIR" style={{ textDecoration: "none", cursor:"pointer"}} />
-        </ListItem>
-      </List>
-    );
+    // Verifique se a localização atual não é "/" ou "/CriarConta"
+    if (location.pathname !== '/' && location.pathname !== '/CriarConta') {
+      return (
+        <List>
+          <ListItem component={Link} to="/" onClick={toggleDrawer}>
+            <ListItemText secondary="ENTRAR" style={{ color: '#fff', textDecoration: 'none', cursor: 'pointer' }} />
+          </ListItem>
+          <ListItem component={Link} to="/Home" onClick={toggleDrawer}>
+            <ListItemText secondary="HOME" style={{ textDecoration: 'none', cursor: 'pointer' }} />
+          </ListItem>
+          <ListItem component={Link} to="/Pedidos" onClick={toggleDrawer}>
+            <ListItemText secondary="PEDIDOS" style={{ textDecoration: 'none', cursor: 'pointer' }} />
+          </ListItem>
+          <ListItem component={Link} to="/CriarConta" onClick={toggleDrawer}>
+            <ListItemText secondary="CADASTRAR" style={{ textDecoration: 'none', cursor: 'pointer' }} />
+          </ListItem>
+          <ListItem component={Link} to="/" onClick={toggleDrawer}>
+            <ListItemText secondary="SAIR" style={{ textDecoration: 'none', cursor: 'pointer' }} />
+          </ListItem>
+        </List>
+      );
+    }
+    return null; // Não renderize os links nas rotas "/" e "/CriarConta"
   };
+
   
   return (
     <AppBar position="static" sx={{ backgroundColor: '#35155D', height: '4rem' }}>

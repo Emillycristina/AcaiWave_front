@@ -22,6 +22,7 @@ function App() {
   return (
     
   <Router>
+    <Navbar />
     <Routes>
       <Route path='/' exact element={<Login />}/>
       <Route path='/CriarConta' element={<CriarConta />} />
@@ -32,7 +33,6 @@ function App() {
       <Route path='/Cadastro' component={Cadastro} />
       <Route path='/LoginUser' component={LoginUser} />
       <Route path='/Listagem' component={Listagem} />
-      <Route path='/Navbar' component={Navbar} />
       <Route path='/CarouselImage' component={CarouselImage} />
       <Route path='/MontarPedido' component={MontarPedido} />
       <Route path='/StatusPedido' component={StatusPedido} />
