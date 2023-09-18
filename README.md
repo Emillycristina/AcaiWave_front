@@ -62,8 +62,7 @@ Contribuições são bem-vindas! Se você deseja contribuir para o projeto, siga
 Este projeto está sob a licença MIT.
 
 
-
-:sparkles: ## Grupo 22 :rocket:
+ ## Grupo 22   ✨ 🚀
 
 Emilly Cristina finco.
 
