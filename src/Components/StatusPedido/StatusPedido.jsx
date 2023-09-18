@@ -11,9 +11,6 @@ import {Typography} from "@mui/material";
 import { useEffect, useState } from "react";
 //import axios from "axios";
 
-function createData(numero, nome, status) {
-  return { numero, nome, status };
-}
 
 // const fetchData = async () => {
 //   try {
@@ -61,18 +58,14 @@ const StatusPedido = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://34.41.148.34/customers');
-      setProduto(data.data)
-    } catch (error) {
-      console.error('Erro ao fazer a solicitação:', error);
-    }
-  };
-
-  // const rows = [
-  //   createData(1, "Jorge", "Preparando"),
-  //   createData(2, "Jorge", "Preparando"),
-  //   createData(3, "Jorge", "Preparando"),
-  // ];
+      const response = await fetch('http://34.41.148.34/auth/login', {
+        method: 'GET',
+      } );
+      setProduto(response.data);
+  } catch (error) {
+    // Lidar com erros de rede ou outros erros
+    console.error('Erro ao fazer a solicitação:', error);
+  }}
 
   useEffect(() => {
     fetchData();
