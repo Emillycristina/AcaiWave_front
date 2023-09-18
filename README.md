@@ -60,3 +60,16 @@ Contribuições são bem-vindas! Se você deseja contribuir para o projeto, siga
 
 
 Este projeto está sob a licença MIT.
+
+
+
+## Grupo 22
+
+Emilly Cristina finco
+Adriana Silva Lima
+Ricardo Eduardo Claro
+José Adellmo Silva Junior
+João Victor da Silva Soares
+Pablo Ferreira Nascimento
+
+
