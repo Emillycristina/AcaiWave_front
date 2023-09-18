@@ -14,7 +14,7 @@ function Listagem() {
 
   useEffect(() => {
     // Define a URL da sua API
-    const apiUrl = 'https://34.41.148.34/costumers';
+    const apiUrl = 'https://34.41.148.34/orders';
 
     // Realiza a requisição fetch para a API
     fetch(apiUrl)

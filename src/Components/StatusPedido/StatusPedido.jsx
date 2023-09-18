@@ -9,31 +9,8 @@ import { Box } from "@mui/material";
 import { styled } from "@mui/material";
 import {Typography} from "@mui/material";
 import { useEffect, useState } from "react";
-//import axios from "axios";
 
 
-// const fetchData = async () => {
-//   try {
-//     const response = await fetch('http://34.41.148.34/customers', {
-//       method: 'GET',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(rows),
-//     });
-
-//     if (!response.ok) {
-//       throw new Error('Network response was not ok');
-//     }
-
-//     const responseData = await response.json();
-//     setData(responseData);
-//     setLoading(false);
-//   } catch (error) {
-//     console.error('Erro ao fazer a solicitação:', error);
-//     setLoading(false);
-//   }
-// };
 
 const StyledTableRow = styled(TableRow)(({  }) => ({
   "&:nth-of-type(odd)": {
@@ -58,7 +35,7 @@ const StatusPedido = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://34.41.148.34/auth/login', {
+      const response = await fetch('http://34.41.148.34/orders', {
         method: 'GET',
       } );
       setProduto(response.data);
