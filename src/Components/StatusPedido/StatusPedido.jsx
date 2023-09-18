@@ -9,11 +9,8 @@ import { Box } from "@mui/material";
 import { styled } from "@mui/material";
 import {Typography} from "@mui/material";
 import { useEffect, useState } from "react";
-import axios from "axios";
+//import axios from "axios";
 
-function createData(numero, nome, status) {
-  return { numero, nome, status };
-}
 
 // const fetchData = async () => {
 //   try {
