@@ -73,6 +73,7 @@ const StatusPedido = () => {
         marginX="auto"
         maxWidth="90%"
         marginTop="20px"
+        marginBottom='20px'
         sx={{ borderRadius: "25px", overflow: "hidden" }}
       >
         <TableContainer component={Paper} sx={{ backgroundColor: "#35155D" }}>
