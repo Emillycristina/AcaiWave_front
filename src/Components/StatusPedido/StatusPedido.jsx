@@ -162,7 +162,7 @@ const StatusPedido = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://34.41.148.34/orders", {
+      const response = await fetch("http://34.41.148.34/orders/findall", {
         method: "GET",
       });
       if (response.ok) {
@@ -251,7 +251,7 @@ const StatusPedido = () => {
                       fontSize: 22,
                     }}
                   >
-                    {row.numero}
+                    {row.number_order}
                   </StyledLeftCell>
 
                   <TableCell
