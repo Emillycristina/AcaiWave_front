@@ -17,10 +17,6 @@ import { useForm, Controller,useFormState } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-
-
-
-
 const schema = yup.object().shape({
   name: yup
     .string()
@@ -75,9 +71,6 @@ const Cadastro = () => {
   const formState = useFormState({control});
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [password, setPassword] = useState("");
-  
-
- 
   
  const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);

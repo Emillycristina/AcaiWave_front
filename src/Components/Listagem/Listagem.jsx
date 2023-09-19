@@ -13,12 +13,10 @@ function Listagem() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Define a URL da sua API
-    const apiUrl = 'https://34.41.148.34/orders';
-
+  
     // Realiza a requisição fetch para a API
-    fetch(apiUrl)
-      .then((response) => {
+    fetch('https://34.41.148.34/orders')
+      .then((response) =
         if (!response.ok) {
           throw new Error('Erro na requisição');
         }
@@ -58,7 +56,7 @@ function Listagem() {
             Próximos Pedidos
           </Typography>
           {pedidos.map((pedido) => (
-            <Grid item xs={12} key={pedido.id}>
+            <Grid item xs={12} key={pedido.number_order}>
               <Card style={cardStyle} sx={{ display: "flex" }}>
                 <Grid justifyContent="center">
                   <CardMedia
@@ -72,7 +70,21 @@ function Listagem() {
                     component="div"
                     sx={{ marginLeft: "20px", color: "#512B81", fontWeight: 700 }}
                   >
-                    {pedido.volume}
+                    {pedido.costumer_order}
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    component="div"
+                    sx={{ marginLeft: "20px", color: "#512B81", fontWeight: 700 }}
+                  >
+                    {pedido.size_order}
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    component="div"
+                    sx={{ marginLeft: "20px", color: "#512B81", fontWeight: 700 }}
+                  >
+                    {pedido.options}
                   </Typography>
                 </Grid>
                 <CardContent>
@@ -83,7 +95,7 @@ function Listagem() {
                         component="div"
                         sx={{ color: "#512B81", marginLeft: "10px" }}
                       >
-                        {pedido.nome}
+                        {pedido.status}
                       </Typography>
                       <Button
                         sx={{
@@ -97,7 +109,9 @@ function Listagem() {
                     </Grid>
                   </Grid>
                 </CardContent>
-                <CardActions></CardActions>
+                <CardActions>
+
+                </CardActions>
               </Card>
             </Grid>
           ))}
