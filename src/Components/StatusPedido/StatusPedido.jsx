@@ -240,7 +240,7 @@ const StatusPedido = () => {
             </TableHead>
             <TableBody>
               {produto.map((row) => (
-                <StyledTableRow key={row.numero}>
+                <StyledTableRow key={row.number_order}>
                   <StyledLeftCell
                     align="center"
                     component="th"
@@ -251,7 +251,7 @@ const StatusPedido = () => {
                       fontSize: 22,
                     }}
                   >
-                    {row.number_order}
+                    {row.customer_id}
                   </StyledLeftCell>
 
                   <TableCell
@@ -262,7 +262,7 @@ const StatusPedido = () => {
                       fontSize: 22,
                     }}
                   >
-                    {row.nome}
+                    {row.status}
                   </TableCell>
                   <StyledRightCell
                     align="center"
